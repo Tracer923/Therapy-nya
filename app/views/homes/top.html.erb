@@ -1,2 +1,16 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+
+        <div>
+          <% @posts.each do |posts| %>
+            <div>
+              <%= link_to posts_path(posts) do %>
+                <div>ハッピーをためこむ</div>
+              <% end %>
+              <%= link_to posts_path(posts) do %>
+                <span>ネガティブをすてる</span><br>
+              <% end %>
+              <%= link_to posts_path(posts) do %>
+                <div>おはなし</div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
