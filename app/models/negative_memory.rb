@@ -1,0 +1,2 @@
+class NegativeMemory < ApplicationRecord
+end

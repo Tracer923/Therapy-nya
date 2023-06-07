@@ -1,0 +1,2 @@
+class HappyMemory < ApplicationRecord
+end
