@@ -1,3 +1,38 @@
-// Place all the styles related to the Homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.top-space {
+  height: 50px; /* 上部スペースの高さを調整 */
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 30px 10px 10px;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  text-decoration: none; /* 下線を非表示にする */
+}
+
+.happy-button {
+  background-color: #ff80c0;
+}
+
+.negative-button {
+  background-color: #ff4d8c;
+}
+
+.story-button {
+  background-color: #ffaa00;
+}
+
+.button:hover {
+  text-decoration: none; /* 下線を非表示にする */
+}
+
+.rounded-image {
+  border-radius: 50%; /* 50%に設定することで画像が円形になります */
+}
+

@@ -1,16 +1,19 @@
+<%= stylesheet_link_tag "homes", media: "all" %>
 
-        <div>
-          <% @posts.each do |posts| %>
-            <div>
-              <%= link_to posts_path(posts) do %>
-                <div>ハッピーをためこむ</div>
-              <% end %>
-              <%= link_to posts_path(posts) do %>
-                <span>ネガティブをすてる</span><br>
-              <% end %>
-              <%= link_to posts_path(posts) do %>
-                <div>おはなし</div>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
+<div class="top-space"></div>
+
+<div class="container" >
+  <div class="row justify-content-center">
+    <%= image_tag 'nya.png', size: '200x200', class: "rounded-image" %>
+  </div>
+  <div class="row justify-content-center">
+    <%= link_to "ハッピーをためこむ", new_happy_memory_path, class: "button happy-button btn-primary" %>
+  </div>
+  <div class="row justify-content-center">
+    <%= link_to "ネガティブをすてる", new_negative_memory_path, class: "button negative-button btn-primary" %>
+  </div>
+  <div class="row justify-content-center">
+    <%= link_to "おはなし", posts_path, class: "button story-button btn-primary" %>
+  </div>
+</div>
+

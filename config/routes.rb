@@ -13,5 +13,11 @@ Rails.application.routes.draw do
   resources :notifications, only: [:index, :show]
   resources :reminders, except: [:index]
 
+  get 'happy_memories/new', to: 'happy_memories#new', as: 'new_happy_memory'
+  post 'happy_memories', to: 'happy_memories#create', as: 'create_happy_memory'
+  
+  get 'negative_memories/new', to: 'negative_memories#new', as: 'new_negative_memory'
+  post 'negative_memories', to: 'negative_memories#create', as: 'create_negative_memory'
+
 
 end
