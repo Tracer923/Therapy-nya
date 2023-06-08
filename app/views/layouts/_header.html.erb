@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="row justify-content-center align-items-center">
           <%= link_to root_path, class: "navbar-brand" do %>
-            <%= image_tag 'nya.png', size: '180x180', alt: "せらぴーにゃ" %>
+            <%= image_tag 'nya.png', size: '180x180', alt: "せらぴーにゃ", class: "rounded-image" %>
           <% end %>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -17,12 +17,11 @@
               <%= link_to "マイページ", users_path, class: 'btn btn-primary' %>
             </li>
             <li class="nav-item">
-              <%#= link_to "ログアウト", logout_path, class: 'btn btn-outline-primary' %>
-            <% if user_signed_in? %>
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-            <% else %>
-              <%= link_to 'ログイン', new_user_session_path %>
-            <% end %>
+              <% if user_signed_in? %>
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>
+              <% else %>
+                <%= link_to 'ログイン', new_user_session_path, class: 'btn btn-primary'  %>
+              <% end %>
             </li>
           </ul>
         </div>
