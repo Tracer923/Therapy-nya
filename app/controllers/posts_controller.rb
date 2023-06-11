@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to post_path  # 投稿後に投稿一覧ページにリダイレクト
+      redirect_to posts_path  # 投稿後に投稿一覧ページにリダイレクト
     else
       @posts = Post.all
       render :index  # エラー時には同じページを表示
