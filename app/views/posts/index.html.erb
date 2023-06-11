@@ -1,2 +1,22 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="container">
+  <div class="post-list">
+    <% @posts.each do |post| %>
+      <div class="post">
+        <h3 class="post-user"><%= post.user.name %></h3>
+        <p class="post-content"><%= post.content %></p>
+        <div class="post-actions">
+          <%= link_to "コメント", post_comments_path(post), method: :post, class: "post-action" %>
+          <%= link_to "いいね", post_likes_path(post), method: :post, class: "post-action" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= form_with(model: @post, url: posts_path, class: "post-form") do |form| %>
+    <div class="form-group">
+      <%= form.text_area :content, name: "post[content]", placeholder: "投稿内容を入力してください" %>
+    </div>
+    <div class="form-group">
+      <%= form.submit "投稿する", class: "post-submit" %>
+    </div>
+  <% end %>
+</div>
