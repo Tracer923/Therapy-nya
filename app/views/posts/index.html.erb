@@ -5,8 +5,23 @@
         <h3 class="post-user"><%= post.user.name %></h3>
         <p class="post-content"><%= post.content %></p>
         <div class="post-actions">
-          <%= link_to "コメント", post_comments_path(post), method: :post, class: "post-action" %>
-          <%= link_to "いいね", post_likes_path(post), method: :post, class: "post-action" %>
+          <!--いいねの記述-->
+          <% if post.liked_by?(current_user) %>
+            <%= link_to post_like_path(post, post.likes.find_by(user_id: current_user.id).id), method: :delete, class: "post-action" do %>
+              <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+              <%= post.likes.count %>
+            <% end %>
+          <% else %>
+            <%= link_to post_likes_path(post), method: :post, class: "post-action" do %>
+              <i class="fas fa-heart" aria-hidden="true"></i>
+              <%= post.likes.count %>
+            <% end %>
+          <% end %>
+        </div>
+        <!--コメントの記述-->
+        <div>
+          <%= render 'comments/form', post: post %>
+          <%= render 'comments/index', post: post %>
         </div>
       </div>
     <% end %>
