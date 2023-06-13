@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :notifications, only: [:index, :show]
   resources :reminders, except: [:index]
   
-  resources :happy_memories, only: [:new, :create]
+  resources :happy_memories, only: [:new, :create, :index, :show]
   #ネガティブという文言はのちに変更
-  resources :negative_memories, only: [:new, :create]
+  resources :negative_memories, only: [:new, :create, :index, :show]
 end

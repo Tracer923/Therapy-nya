@@ -17,7 +17,14 @@
               <%= post.likes.count %>
             <% end %>
           <% end %>
+          
+          <!--投稿の削除ボタン-->
+          <%= link_to post_path(post), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "post-action" do %>
+            <i class="fas fa-trash" aria-hidden="true" style="color: red;"></i>
+            削除
+          <% end %>
         </div>
+        
         <!--コメントの記述-->
         <div>
           <%= render 'comments/form', post: post %>
@@ -26,6 +33,7 @@
       </div>
     <% end %>
   </div>
+  
   <%= form_with(model: @post, url: posts_path, class: "post-form") do |form| %>
     <div class="form-group">
       <%= form.text_area :content, name: "post[content]", placeholder: "投稿内容を入力してください" %>
