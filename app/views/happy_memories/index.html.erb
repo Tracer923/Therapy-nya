@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>ハッピーメモリー一覧</h1>
+  <% @happy_memories.each do |memory| %>
+    <div class="happy-memory">
+      <h3 class="happy-memory-title"><%= memory.title %></h3>
+      <p class="happy-memory-content"><%= memory.content %></p>
+      <p class="happy-memory-date">投稿日時: <%= memory.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+    </div>
+  <% end %>
+  <%= link_to "新規投稿", new_happy_memory_path, class: "btn btn-primary" %>
+</div>
