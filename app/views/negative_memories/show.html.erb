@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="card">
+    <h3 class="card-title"><%= @negative_memory.title %></h3>
+    <div class="card-body">
+      <p class="card-text"><strong>内容:</strong></p>
+      <p class="card-text"><%= @negative_memory.content %></p>
+      <p class="card-text"><strong>投稿日時:</strong> <%= @negative_memory.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+      <div class="text-center">
+        <a href="<%= negative_memories_path %>" class="btn btn-primary">
+          <i class="fas fa-list"></i> 一覧へ戻る
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

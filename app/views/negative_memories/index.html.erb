@@ -1,0 +1,11 @@
+<div class="container">
+  <h1 class="card-title">nメモリー一覧</h1>
+  <% @negative_memories.each do |memory| %>
+    <div class="card">
+      <h3 class="card-title"><%= memory.title %></h3>
+      <p class="card-text"><%= memory.content %></p>
+      <p class="card-text">投稿日時: <%= memory.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+    </div>
+  <% end %>
+  <%= link_to "新規投稿", new_negative_memory_path, class: "btn btn-primary" %>
+</div>
