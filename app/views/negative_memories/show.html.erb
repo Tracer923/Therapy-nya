@@ -6,7 +6,10 @@
       <p class="card-text"><%= @negative_memory.content %></p>
       <p class="card-text"><strong>投稿日時:</strong> <%= @negative_memory.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
       <div class="text-center">
-        <a href="<%= negative_memories_path %>" class="btn btn-primary">
+        <button id="deleteButton" class="btn btn-primary">
+          <i class="fas fa-times"></i> 消す
+        </button>
+        <a href="<%= negative_memories_path %>" class="btn btn-secondary">
           <i class="fas fa-list"></i> 一覧へ戻る
         </a>
       </div>
