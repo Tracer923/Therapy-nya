@@ -1,18 +1,37 @@
-/* カスタムスタイル */
-.negative-form {
-  max-width: 400px;
-  margin: 20px auto;
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.btn-negative {
+.card {
+  max-width: 400px;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card-text {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.card-text:last-child {
+  margin-bottom: 0;
+}
+
+.btn {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #ff4d8c;
-  color: #fff;
   font-size: 16px;
   border-radius: 30px;
   border: none;
@@ -21,7 +40,21 @@
   transition: background-color 0.3s ease;
 }
 
-.btn-negative:hover {
-  background-color: #ff1a66;
+.btn-primary {
+  background-color: #ff4d4d;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #ff3333;
+}
+
+.btn-secondary {
+  background-color: #ccc;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #999;
 }
 
