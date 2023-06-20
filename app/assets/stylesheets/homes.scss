@@ -1,11 +1,11 @@
 .top-space {
-  height: 5px;
+  height: 50px;
 }
 
 .button {
   display: inline-block;
   padding: 10px 20px;
-  margin: 30px 10px 10px;
+  margin: 20px 10px 10px;
   color: #fff;
   font-size: 16px;
   border-radius: 30px;
@@ -26,6 +26,10 @@
 
 .story-button {
   background-color: #ffaa00;
+}
+
+.tubuyaki-button {
+  background-color: #FF5F17;
 }
 
 .button:hover,
