@@ -8,6 +8,6 @@ class Post < ApplicationRecord
   validates :content,presence:true,length:{maximum:200}
   
   def liked_by?(user)
-    likes.where(user_id: user.id).exists?
+    user.present? && likes.where(user_id: user.id).exists?
   end
 end
