@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_08_021653) do
+ActiveRecord::Schema.define(version: 2023_06_24_123945) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2023_06_08_021653) do
     t.boolean "read"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "post_id"
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 

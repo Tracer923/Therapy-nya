@@ -20,6 +20,12 @@ class HappyMemoriesController < ApplicationController
     @happy_memories = HappyMemory.all
   end
 
+def destroy
+  @happy_memory = HappyMemory.find(params[:id])
+  @happy_memory.destroy
+  redirect_to happy_memories_path, notice: "投稿が削除されました"
+end
+
   private
 
   def memory_params
