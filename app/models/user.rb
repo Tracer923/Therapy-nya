@@ -2,7 +2,7 @@ class User < ApplicationRecord
 
   attr_accessor :name
 
-  has_many :reminders, dependent: :destroy
+  has_many :happy_memories, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy

@@ -6,6 +6,7 @@ class HappyMemoriesController < ApplicationController
   def create
     @memory = HappyMemory.new(memory_params)
     if @memory.save
+      @memory.reminders.create(scheduled_at: Reminder::REMIND_PERIOD, reminded: false)
       redirect_to happy_memory_path(@memory), notice: "ポジティブな思い出を記録しました。"
     else
       render :new
