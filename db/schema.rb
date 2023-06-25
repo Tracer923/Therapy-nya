@@ -27,8 +27,6 @@ ActiveRecord::Schema.define(version: 2023_06_24_123945) do
     t.integer "followed_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["followed_id"], name: "index_follows_on_followed_id"
-    t.index ["follower_id"], name: "index_follows_on_follower_id"
   end
 
   create_table "happy_memories", force: :cascade do |t|
@@ -97,8 +95,6 @@ ActiveRecord::Schema.define(version: 2023_06_24_123945) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
-  add_foreign_key "follows", "followeds"
-  add_foreign_key "follows", "followers"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "notifications", "users"
