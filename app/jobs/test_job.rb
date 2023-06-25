@@ -1,7 +1,7 @@
 class TestJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
-    # Do something later
+  def perform
+    User.find(2).update(email: 'yuya5@gmail.com')
   end
 end
