@@ -1,4 +1,5 @@
 class Reminder < ApplicationRecord
-  belongs_to :user
   belongs_to :happy_memory
+  
+  REMIND_PERIOD = 3.months.since   #
 end

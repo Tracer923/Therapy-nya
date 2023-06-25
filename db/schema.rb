@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_25_114449) do
+ActiveRecord::Schema.define(version: 2023_06_25_125420) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2023_06_25_114449) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
   end
 
   create_table "likes", force: :cascade do |t|
@@ -91,13 +92,12 @@ ActiveRecord::Schema.define(version: 2023_06_25_114449) do
   end
 
   create_table "reminders", force: :cascade do |t|
-    t.integer "user_id", null: false
     t.integer "happy_memory_id", null: false
     t.datetime "scheduled_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "reminded", null: false
     t.index ["happy_memory_id"], name: "index_reminders_on_happy_memory_id"
-    t.index ["user_id"], name: "index_reminders_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -119,5 +119,4 @@ ActiveRecord::Schema.define(version: 2023_06_25_114449) do
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "reminders", "posts", column: "happy_memory_id"
-  add_foreign_key "reminders", "users"
 end
