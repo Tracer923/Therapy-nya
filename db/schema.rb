@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_25_104224) do
+ActiveRecord::Schema.define(version: 2023_06_25_114449) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -92,11 +92,11 @@ ActiveRecord::Schema.define(version: 2023_06_25_104224) do
 
   create_table "reminders", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "post_id", null: false
+    t.integer "happy_memory_id", null: false
     t.datetime "scheduled_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_reminders_on_post_id"
+    t.index ["happy_memory_id"], name: "index_reminders_on_happy_memory_id"
     t.index ["user_id"], name: "index_reminders_on_user_id"
   end
 
@@ -118,6 +118,6 @@ ActiveRecord::Schema.define(version: 2023_06_25_104224) do
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
-  add_foreign_key "reminders", "posts"
+  add_foreign_key "reminders", "posts", column: "happy_memory_id"
   add_foreign_key "reminders", "users"
 end
