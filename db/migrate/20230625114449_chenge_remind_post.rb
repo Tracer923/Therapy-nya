@@ -1,5 +1,6 @@
 class ChengeRemindPost < ActiveRecord::Migration[6.1]
   def change
-    rename_column :reminders, :post_id, :happy_memory_id
+    remove_column :reminders, :post_id, :integer
+    add_reference :reminders, :happy_memory, foreign_key: true, null: false
   end
 end
