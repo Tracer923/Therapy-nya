@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   # 仮
   resources :follows, only: [:create, :destroy]
-  resources :notifications, only: [:index, :show]
+  resources :notifications, only: [:index]
   resources :reminders, except: [:index]
   
   resources :happy_memories, only: [:new, :create, :index, :show, :destroy]
