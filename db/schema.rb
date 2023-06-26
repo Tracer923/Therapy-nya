@@ -92,11 +92,11 @@ ActiveRecord::Schema.define(version: 2023_06_25_125420) do
   end
 
   create_table "reminders", force: :cascade do |t|
-    t.integer "happy_memory_id", null: false
     t.datetime "scheduled_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "reminded", null: false
+    t.integer "happy_memory_id", null: false
     t.index ["happy_memory_id"], name: "index_reminders_on_happy_memory_id"
   end
 
@@ -118,5 +118,5 @@ ActiveRecord::Schema.define(version: 2023_06_25_125420) do
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
-  add_foreign_key "reminders", "posts", column: "happy_memory_id"
+  add_foreign_key "reminders", "happy_memories"
 end
