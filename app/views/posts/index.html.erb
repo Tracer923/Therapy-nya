@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'posts', media: "all" %>
+
 <div class="container">
   <div class="post-list">
     <% @posts.each do |post| %>
@@ -5,7 +7,6 @@
         <h3 class="post-user"><%= post.user.name %></h3>
         <p class="post-content"><%= post.content %></p>
         <div class="post-actions">
-          <!--いいねの記述-->
           <% if post.liked_by?(current_user) %>
             <%= link_to post_like_path(post, post.likes.find_by(user_id: current_user.id).id), method: :delete, class: "post-action" do %>
               <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
@@ -17,15 +18,13 @@
               <%= post.likes.count %>
             <% end %>
           <% end %>
-          
-          <!--投稿の削除ボタン-->
+
           <%= link_to post_path(post), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "post-action" do %>
             <i class="fas fa-trash" aria-hidden="true" style="color: red;"></i>
             削除
           <% end %>
         </div>
-        
-        <!--コメントの記述-->
+
         <div>
           <%= render 'comments/form', post: post %>
           <%= render 'comments/index', post: post %>
@@ -33,13 +32,4 @@
       </div>
     <% end %>
   </div>
-  
-  <%= form_with(model: @post, url: posts_path, class: "post-form") do |form| %>
-    <div class="form-group">
-      <%= form.text_area :content, name: "post[content]", placeholder: "投稿内容を入力してください" %>
-    </div>
-    <div class="form-group">
-      <%= form.submit "投稿する", class: "post-submit" %>
-    </div>
-  <% end %>
 </div>

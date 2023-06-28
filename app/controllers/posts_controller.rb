@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  
+
   def index
     @posts = Post.all
     @post = Post.new
@@ -37,9 +37,8 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to posts_path, notice: "投稿が削除されました"
   end
-  
-  
-  
+
+
     private
 
   def post_params

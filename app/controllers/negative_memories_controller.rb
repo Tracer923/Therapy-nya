@@ -11,6 +11,14 @@ class NegativeMemoriesController < ApplicationController
       render :new
     end
   end
+    
+  def show
+    @negative_memory = NegativeMemory.find(params[:id])
+  end
+  
+  def index
+    @negative_memories = NegativeMemory.all
+  end
 
   def destroy
     @negative_memory = NegativeMemory.find(params[:id])

@@ -1,19 +1,24 @@
 <div class="container">
   <div class="card">
+
     <canvas id="canvas"></canvas>
+
     <h3 class="card-title"><%= @negative_memory.title %></h3>
     <div class="card-body">
       <p class="card-text"><strong>内容:</strong></p>
       <p class="card-text"><%= @negative_memory.content %></p>
       <p class="card-text"><strong>投稿日時:</strong> <%= @negative_memory.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
       <div class="text-center">
+
         <%= link_to negative_memory_path(@negative_memory), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-secondary" do %>
           <i class="fas fa-trash"></i> 消す
         <% end %>
+
       </div>
     </div>
   </div>
 </div>
+
 
 <script>
   // Little Canvas things
@@ -168,3 +173,4 @@ frame();
 // First particle explosion
 initParticles(config.particleNumber);
 </script>
+

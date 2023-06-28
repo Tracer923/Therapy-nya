@@ -2,8 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.top-space2 {
+  margin: 80px;
+  text-align: center;
+  font-size: 30px;
+}
+
 .container {
-  // display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -50,8 +55,44 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
 .post-submit:hover {
-  background-color: #ff4d8c;
+  background-color: #00f;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px 0;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+
+.register-button {
+  background-color: #66cdaa;
+}
+
+.rog_in-button {
+  background-color: #008b8b;
+}
+
+.back-button {
+  background-color: #6b8e23;
+}
+
+.btn-primary:hover {
+  background-color: blue;
+}
+
+header, .posts {
+  background-color: #66cdaa;
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
