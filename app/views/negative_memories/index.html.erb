@@ -1,0 +1,13 @@
+<div class="container">
+
+  <div class="card text-center">
+    <div class="card-body">
+      <h4 class="card-title">いやなことよりネコみましょう</h4>
+      <div class="random-images">
+        <%= image_tag random_image_path, size: "300x200" %>
+      </div>
+      <p class="caption">かわいいネコです</p>
+    </div>
+  </div>
+  <%= link_to "新規投稿", new_negative_memory_path, class: "btn btn-primary" %>
+</div>

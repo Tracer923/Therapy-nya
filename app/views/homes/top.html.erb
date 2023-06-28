@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag "homes", media: "all" %>
+<%= stylesheet_link_tag 'homes', media: "all" %>
 
 <div class="top-space"></div>
 
@@ -7,13 +7,18 @@
     <%= image_tag 'nya.png', size: '200x200', class: "rounded-image" %>
   </div>
   <div class="row justify-content-center">
-    <%= link_to "ハッピーをためこむ", new_happy_memory_path, class: "button happy-button btn-primary" %>
+    <%= link_to "ポジティブ", new_happy_memory_path, class: "button happy-button btn-primary" %>
   </div>
   <div class="row justify-content-center">
-    <%= link_to "ネガティブをすてる", new_negative_memory_path, class: "button negative-button btn-primary" %>
+    <%= link_to "ネガティブ", new_negative_memory_path, class: "button negative-button btn-primary" %>
   </div>
   <div class="row justify-content-center">
-    <%= link_to "おはなし", posts_path, class: "button story-button btn-primary" %>
+    <% if user_signed_in? %>
+
+      <%= link_to "つぶやき", new_post_path, class: "button tubuyaki-button btn-primary" %>
+
+    <% else %>
+      <%= link_to "つぶやき", confirm_posts_path, class: "button tubuyaki-button btn-primary" %>
+    <% end %>
   </div>
 </div>
-
