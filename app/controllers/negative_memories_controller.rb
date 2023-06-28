@@ -20,6 +20,20 @@ class NegativeMemoriesController < ApplicationController
     @negative_memories = NegativeMemory.all
   end
 
+  def destroy
+    @negative_memory = NegativeMemory.find(params[:id])
+    @negative_memory.destroy
+    redirect_to negative_memories_path, notice: "ネガティブな思い出が削除されました。"
+  end
+    
+  def show
+    @negative_memory = NegativeMemory.find(params[:id])
+  end
+  
+  def index
+    @negative_memories = NegativeMemory.all
+  end
+
   private
 
   def memory_params

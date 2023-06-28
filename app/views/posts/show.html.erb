@@ -1,2 +1,11 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="container">
+  <div class="post">
+    <p class="post-content"><%= @post.content %></p>
+    <p class="post-author">投稿者: <%= @post.user.name %></p>
+    <p class="post-date">投稿日時: <%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+    <div class="post-actions">
+      <%= link_to "一覧に戻る", posts_path, class: "btn btn-secondary" %>
+      <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>
