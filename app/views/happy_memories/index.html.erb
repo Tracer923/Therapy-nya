@@ -1,0 +1,15 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="happy-memories">
+      <div class="top-space"></div>
+    <h1 class="card-title">ハッピーメモリー一覧</h1>
+    <% @happy_memories.each do |memory| %>
+      <div class="card">
+        <h3 class="card-title"><%= memory.title %></h3>
+        <p class="card-text"><%= memory.content %></p>
+        <p class="card-text">投稿日時: <%= memory.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M:%S") %></p>
+        <%= button_to "削除", happy_memory_path(memory), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
+      </div>
+    <% end %>
+    <%= link_to "新規投稿", new_happy_memory_path, class: "btn btn-primary" %>
+  </div>
+</div>

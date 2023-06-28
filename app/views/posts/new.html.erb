@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h2>つぶやき</h2>
+    </div>
+    <div class="card-body">
+      <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
+        <% if @post.errors.any? %>
+          <div class="alert alert-danger">
+            <h4><%= pluralize(@post.errors.count, "error") %>が発生しました:</h4>
+            <ul>
+              <% @post.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= form.label :content %>
+          <%= form.text_area :content, class: "form-control" %>
+        </div>
+
+        <div class="text-center">
+          <%= form.submit "つぶやく", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

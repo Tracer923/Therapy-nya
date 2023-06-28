@@ -25,3 +25,45 @@
   background-color: #ff1a66;
 }
 
+.container {
+  //display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.row {
+}
+
+.card {
+  max-width: 100%;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  justify-content: center;
+  z-index: 20;
+}
+
+.card-title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card-text {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.card-text:last-child {
+  margin-bottom: 0;
+}
+
+header, .negative_memories {
+  background-color: #f0e68c;
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
