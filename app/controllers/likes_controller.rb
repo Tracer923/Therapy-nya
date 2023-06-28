@@ -4,7 +4,7 @@ class LikesController < ApplicationController
     like = @post.likes.build(user_id: current_user.id)
     if like.save
       redirect_to posts_path, notice: 'いいね！'
-      post.create_notification_like!(current_user)
+      @post.create_notification_like!(current_user)
     else
       redirect_to posts_path, alert: 'いいねに失敗しました。'
     end
