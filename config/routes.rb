@@ -18,8 +18,17 @@ Rails.application.routes.draw do
   resources :notifications, only: [:index]
   resources :reminders, except: [:index]
   
-  resources :happy_memories, only: [:new, :create, :index, :show, :destroy]
+  resources :happy_memories, only: [:new, :create, :index, :show, :destroy] do
+    collection do
+      get 'confirm' # confirmページのルートを追加
+    end
+  end
 
   # ネガティブという文言はのちに変更
-  resources :negative_memories, only: [:new, :create, :index, :show, :destroy]
+  resources :negative_memories, only: [:new, :create, :index, :show, :destroy] do
+    collection do
+      get 'confirm' #CONFIRMページのルートを追加
+    end
+  end
+  
 end
