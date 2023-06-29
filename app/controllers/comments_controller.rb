@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     comment = current_user.comments.new(comment_params)
     comment.post_id = post.id
     comment.save
-    @post.create_notification_comment!(current_user, @comment.id)
+    post.create_notification_comment!(current_user, comment.id)
     redirect_to request.referer
   end
 
@@ -15,7 +15,8 @@ class CommentsController < ApplicationController
   end
 
   private
+
   def comment_params
-    params.permit(:post_id, :content)
+    params.permit(:content)
   end
 end
