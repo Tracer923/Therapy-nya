@@ -7,6 +7,9 @@
     <%= link_to image_tag('nya.png', size: '200x200', class: "rounded-image"), about_path %>
   </div>
   <div class="row justify-content-center">
+    <%= link_to "つかいかた", how_to_path, class: "button howto-button btn-primary" %>
+  </div>
+  <div class="row justify-content-center">
     <% if user_signed_in? %>
       <%= link_to "ポジティブ", new_happy_memory_path, class: "button happy-button btn-primary" %>
     <% else %>
