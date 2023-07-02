@@ -9,16 +9,13 @@
       <p class="card-text"><%= @negative_memory.content %></p>
       <p class="card-text"><strong>投稿日時:</strong> <%= @negative_memory.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
       <div class="text-center">
-
         <%= link_to negative_memory_path(@negative_memory), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-secondary" do %>
           <i class="fas fa-trash"></i> 消す
         <% end %>
-
       </div>
     </div>
   </div>
 </div>
-
 
 <script>
   // Little Canvas things
@@ -28,7 +25,7 @@ ctx = canvas.getContext('2d');
 // Set Canvas to be window size
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
+const char_pix = 80;
 // Configuration, Play with these
 var config = {
   particleNumber: 800,
@@ -62,8 +59,50 @@ drawBg = function (ctx, color) {
   ctx.font = 'bold 60pt sans-serif';
   ctx.strokeStyle = '#f00';
   ctx.lineWidth = 3;
-  ctx.strokeText("<%= @negative_memory.content %>", 500, 400);  // 座標 (20, 80) にテキスト描画
+  drow_text(ctx,"<%= @negative_memory.content %>")
+  //ctx.strokeText("<%= @negative_memory.content %>", 500, 400);
 };
+
+function drow_text(ctx, src){
+  const results = [];
+  let tmp = "";
+  src.split("").map((row) => {
+    tmp = tmp + row;
+    // 16文字の場合に配列に入れる
+    if (tmp.length === parseInt(canvas.width / char_pix) ) {
+      console.log(tmp);
+      results.push(tmp);
+    // 文字カウント用の変数をクリア
+      tmp = "";
+    }
+  });
+  // 16文字に満たなかった残りの文字を配列に追加する
+  const length = results.join("").length;
+  results.push(src.slice(length));
+  console.log(results.length);
+
+  const y_line_max = parseInt(canvas.height/char_pix);
+  let y_offset = 0;
+  if ( y_line_max > results.length){
+      y_offset = ((y_line_max - results.length) /2) * char_pix;
+
+  }
+  console.log('y_max= ' + y_line_max)
+  results.map((result, index) => {
+    console.log('map = ' + result +' '+ index);
+    // 16px*インデックス でY軸を指定する
+    let x_offset = 0;
+    const x_col_max = parseInt(canvas.width/char_pix);
+    if ( x_col_max > result.length){
+      x_offset = ((x_col_max - result.length) /2) * char_pix;
+    }
+    ctx.strokeText(result, x_offset, y_offset + char_pix + (char_pix * index));
+  });
+}
+
+
+
+
 
 // Particle Constructor
 var Particle = function (x, y) {
