@@ -18,3 +18,12 @@ h1 {
   color: rgba(255,255,255,.68);
   border: .075em solid rgba(255,255,255,.1);
 }
+
+ @font-face {
+  font-family: "Nico_Moji_v2";
+  src: url('/fonts/nicomoji-plus_v2.ttf') format('truetype');
+}
+
+body {
+  font-family: "Nico_Moji_v2";
+}
